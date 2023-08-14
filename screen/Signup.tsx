@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {useState} from 'react';
 import {RootStackParamList} from '../navigation/NavigationApp';
-import {useNavigation} from '@react-navigation/native';
+import {Link, useNavigation} from '@react-navigation/native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
@@ -59,7 +59,7 @@ const Signup: React.FC = () => {
     if (!nameError && !mobileError && !passwordError) {
       // Implement your signup logic here, e.g., API call or data storage
       console.log('Signup successful');
-      navigation.navigate('Login');
+      navigation.navigate('OnboardingPage');
     }
   };
 
