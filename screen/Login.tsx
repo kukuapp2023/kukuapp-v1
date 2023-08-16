@@ -43,6 +43,7 @@ const Login = () => {
     if (!mobileError && !passwordError) {
       // Implement your login logic here, e.g., API call for authentication
       console.log('Login successful');
+      navigation.navigate('Main');
     }
   };
 
@@ -63,7 +64,7 @@ const Login = () => {
             onBlur={validateMobile}
             className="my-1 mx-3 border-1 rounded-2xl bg-white"
           />
-          <Text className=" text-black uppercase">password</Text>
+          <Text className=" text-black  uppercase">password</Text>
           <TextInput
             value={password}
             onChangeText={text => setPassword(text)}
@@ -73,7 +74,7 @@ const Login = () => {
           <View>
           <TouchableOpacity
             onPress={handleLogin}
-            className="h-12 w-70 my-3 bg-slate-900 rounded-xl border-1 items-center justify-center">
+            className="h-12 w-60 my-3 mx-10 bg-slate-900 rounded-xl border-1 items-center justify-center">
             <Text className="text-white">Sign Up</Text>
           </TouchableOpacity>
          </View>
