@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
 import {useState} from 'react';
 import {RootStackParamList} from '../navigation/NavigationApp';
 import {Link, useNavigation} from '@react-navigation/native';
@@ -67,6 +67,12 @@ const Signup: React.FC = () => {
     <View
       className="flex-1 items-center justify-center "
       style={{backgroundColor: '#1C2120'}}>
+        <View className='w-60 h-60'>
+          <Image
+          source={require('../assets/5.png')}
+          className='object-contain w-full h-full'
+          />
+        </View>
       <View>
         <Text className=" text-white text-2xl my-2 uppercase">Sign up</Text>
       </View>

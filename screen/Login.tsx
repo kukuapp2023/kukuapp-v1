@@ -1,4 +1,4 @@
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity,Image} from 'react-native';
 import {RootStackParamList} from '../navigation/NavigationApp';
 import { useNavigation} from '@react-navigation/native';
 import{Link} from "@react-navigation/native"
@@ -49,7 +49,12 @@ const Login = () => {
 
   return (
     <View className="flex-1" style={{backgroundColor: '#F5D20A'}}>
-      <View className=" h-1/2 bg-white rounded-b-[70]"></View>
+      <View className=" h-1/2 bg-white rounded-b-[70]">
+        <Image
+        source={require("../assets/5.png")}
+        className="object-cover w-full h-full"
+        />
+      </View>
       <View className="flex justify-center items-center ">
         <View className="my-4 text-center">
           <Text className=" text-5xl  text-black ">Login</Text>
@@ -57,20 +62,22 @@ const Login = () => {
         </View>
 
         <View>
-          <Text className=" text-black uppercase">username/phone number</Text>
+          <View className='px-3'>
+          <Text className=" text-black uppercase px-4">username/phone number</Text>
           <TextInput
             value={mobile}
             onChangeText={text => setMobile(text)}
             onBlur={validateMobile}
             className="my-1 mx-3 border-1 rounded-2xl bg-white"
           />
-          <Text className=" text-black  uppercase">password</Text>
+          <Text className=" text-black px-4 uppercase">password</Text>
           <TextInput
             value={password}
             onChangeText={text => setPassword(text)}
             onBlur={validatePassword}
-            className="w-80 mx-3 border-1 rounded-2xl bg-white"
+            className=" mx-3 border-1 rounded-2xl bg-white"
           />
+          </View>
           <View>
           <TouchableOpacity
             onPress={handleLogin}
@@ -78,8 +85,9 @@ const Login = () => {
             <Text className="text-white">Sign Up</Text>
           </TouchableOpacity>
          </View>
+         
          <Link to="/ForgotPassword">
-          <Text className="text-center py-2">Forgait Password</Text>
+          <Text className="text-center">Forgait Password</Text>
          </Link>
         
           <Text className=" text-center">

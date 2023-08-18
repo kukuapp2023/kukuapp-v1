@@ -8,6 +8,7 @@ import MainTabNavigator from '../navigation/MainTabNavigator'
 const Home = () => {
   return (
     <View className='flex-1'>
+      <View className=' absolute h-full bg-slate-400 z-50 '></View>
     <HeaderApp/>
     <View>
     <View className=' w-7 h-7 m-2'>

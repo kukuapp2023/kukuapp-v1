@@ -38,7 +38,7 @@ import Wallet from '../screen/Wallet';
             <Stack.Screen name="Signup" options={{headerShown: false}} component={Signup} />
             <Stack.Screen name="Login" options={{headerShown: false}} component={Login} />
             <Stack.Screen name="ForgotPassword" options={{headerShown: false}} component={ForgotPassword} />
-            <Stack.Screen name="OnboardingPage" component={OnboardingPage} />
+            <Stack.Screen name="OnboardingPage" options={{headerShown:false}} component={OnboardingPage} />
             <Stack.Screen name='Home' options={{headerShown:false}} component={Home}/>
             <Stack.Screen name='Main' options={{headerShown:false}} component={Main}/>
             <Stack.Screen name='Wallet' options={{headerShown:false}} component={Wallet}/>

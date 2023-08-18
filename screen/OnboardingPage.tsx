@@ -32,6 +32,7 @@ const OnboardingPage = () => {
        onDone={handleDone}
        onSkip={handleDone}
       bottomBarHighlight={false}
+      
       DoneButtonComponent={doneButton}
      
 

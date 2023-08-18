@@ -38,13 +38,13 @@ const LoadingScreen = () => {
     <View
       className="flex-1 items-center justify-center"
       style={{backgroundColor: '#1C2120'}}>
+
       <View style={styles.progressBarContainer}>
         <View
           className=" bg-amber-400"
           style={[styles.progressBar, {width: `${progress * 100}%`}]}
         />
       </View>
-      <Text style={styles.progressText}>{Math.floor(progress * 100)}%</Text>
     </View>
   );
 };
