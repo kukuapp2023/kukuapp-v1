@@ -13,6 +13,7 @@
 import Home from '../screen/Home';
 import Main from '../screen/Main';
 import Wallet from '../screen/Wallet';
+import AddProduct from '../components/AddProduct';
 
 
   export type RootStackParamList = {
@@ -24,6 +25,7 @@ import Wallet from '../screen/Wallet';
     Home:undefined;
     Main:undefined;
     Wallet:undefined;
+    AddProduct:undefined
     
   }
 
@@ -42,6 +44,7 @@ import Wallet from '../screen/Wallet';
             <Stack.Screen name='Home' options={{headerShown:false}} component={Home}/>
             <Stack.Screen name='Main' options={{headerShown:false}} component={Main}/>
             <Stack.Screen name='Wallet' options={{headerShown:false}} component={Wallet}/>
+            <Stack.Screen name='AddProduct' options={{headerShown:false}} component={AddProduct}/>
             </Stack.Navigator>
       </NavigationContainer>
     )
