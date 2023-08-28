@@ -31,7 +31,7 @@ const AddProduct: React.FC = () => {
 
   return (
     <View className='flex-1 justify-center items-center' >
-        <View className=' bg-white w-80 p-4'>
+        <View className=' bg-white w-64 p-4'>
             <View>
       <Text>Add New Product</Text>
       <TextInput
