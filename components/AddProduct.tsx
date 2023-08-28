@@ -30,14 +30,14 @@ const AddProduct: React.FC = () => {
   };
 
   return (
-    <View className='flex-1 justify-center items-center' >
-        <View className=' bg-white w-64 p-4'>
+    <View className='flex-1 justify-center items-center rounded-2xl' >
+        <View className=' bg-white w-64 p-4 rounded-2xl'>
             <View>
       <Text>Add New Product</Text>
       <TextInput
       className='border-2 my-2 border-black rounded-full'
         
-        placeholder="Description"
+        placeholder="product name"
         value={description}
         onChangeText={setDescription}
       />
@@ -52,14 +52,14 @@ const AddProduct: React.FC = () => {
       <TextInput
       className='border-2 my-2 border-black rounded-full'
        
-        placeholder="Size"
+        placeholder="upload imges"
         value={size}
         onChangeText={setSize}
       />
       <TextInput
       className='border-2 my-2 border-black rounded-full'
         
-        placeholder="Condition"
+        placeholder="product category"
         value={condition}
         onChangeText={setCondition}
       />
