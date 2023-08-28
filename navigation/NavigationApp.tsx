@@ -2,6 +2,8 @@
   import React from 'react'
   import { NavigationContainer } from '@react-navigation/native'
   import { createNativeStackNavigator } from '@react-navigation/native-stack';
+  import { Provider } from 'react-redux';
+  import store from '../store/store';
 
 
   //import screen
@@ -13,6 +15,8 @@
 import Home from '../screen/Home';
 import Main from '../screen/Main';
 import Wallet from '../screen/Wallet';
+import AddProduct from '../components/AddProduct';
+import CartScreen from '../components/CartScreen';
 
 
   export type RootStackParamList = {
@@ -24,6 +28,8 @@ import Wallet from '../screen/Wallet';
     Home:undefined;
     Main:undefined;
     Wallet:undefined;
+    AddProduct:undefined
+    CartScreen:undefined
     
   }
 
@@ -32,6 +38,7 @@ import Wallet from '../screen/Wallet';
 
   const NavigationApp = () => {
     return (
+      <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="LoadingScreen">
             <Stack.Screen name="LoadingScreen" options={{headerShown: false}} component={LoadingScreen} />
@@ -42,8 +49,11 @@ import Wallet from '../screen/Wallet';
             <Stack.Screen name='Home' options={{headerShown:false}} component={Home}/>
             <Stack.Screen name='Main' options={{headerShown:false}} component={Main}/>
             <Stack.Screen name='Wallet' options={{headerShown:false}} component={Wallet}/>
+            <Stack.Screen name='AddProduct' options={{headerShown:false}} component={AddProduct}/>
+            <Stack.Screen name='CartScreen' options={{headerShown:false}} component={CartScreen}/>
             </Stack.Navigator>
       </NavigationContainer>
+      </Provider>
     )
   }
 
