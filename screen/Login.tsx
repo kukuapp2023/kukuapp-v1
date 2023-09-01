@@ -82,7 +82,7 @@ const Login = () => {
           <TouchableOpacity
             onPress={handleLogin}
             className="h-12 w-60 my-3 mx-10 bg-slate-900 rounded-xl border-1 items-center justify-center">
-            <Text className="text-white">Sign Up</Text>
+            <Text className="text-white">Login</Text>
           </TouchableOpacity>
          </View>
          

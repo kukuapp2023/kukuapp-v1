@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity,Image } from 'react-native';
 import {RootStackParamList} from '../navigation/NavigationApp';
 
 
@@ -30,7 +30,19 @@ const AddProduct: React.FC = () => {
   };
 
   return (
-    <View className='flex-1 justify-center items-center rounded-2xl' >
+    <View className='flex-1' >
+      <View className='shadow-xl bg-white  rounded-b-xl'>
+        <View className='justify-between items-center'>
+      <View><Text className='text-xl font-bold uppercase text-black pl-2'>Add Product</Text></View>
+      <View className=' w-16 h'>
+        <Image
+        source={require("../assets/5.png")}
+        className="object-cover w-full h-full"
+        />
+      </View>
+      </View>
+      </View>
+    <View className=' mt-9 justify-center items-center rounded-2xl' >
         <View className=' bg-white w-64 p-4 rounded-2xl'>
             <View>
       <Text>Add New Product</Text>
@@ -63,9 +75,12 @@ const AddProduct: React.FC = () => {
         value={condition}
         onChangeText={setCondition}
       />
-      <Button title="Add Product" onPress={handleAddProduct} />
+      <TouchableOpacity className='bg-slate-900 rounded-lg w-40 ml-6 ' onPress={handleAddProduct}>
+        <Text className='text-white text-center'>Add Product</Text>
+        </TouchableOpacity>
       </View>
       </View>
+    </View>
     </View>
   );
 };

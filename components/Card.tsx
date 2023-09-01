@@ -8,6 +8,7 @@ import { products } from '../data/Data'; // Make sure you have a file called 'Da
 // Define the structure of a product
 interface Product {
   username: string;
+  userprofileImg: string;
   ListingName: string;
   Description: string;
   Price: number;
@@ -46,7 +47,12 @@ const Card: React.FC = () => {
             <View className='flex justify-between flex-row my-1'>
               <View className='flex  flex-row'>
                 {/* Display user info */}
-                <View className='mx-2 w-10 h-10 bg-red-600 rounded-full'></View>
+                <View className='mx-2 w-10 h-10 bg-red-600 rounded-full'>
+                <Image
+                  source={{ uri: item.userprofileImg }} // Assuming 'Images' is an array of image URLs
+                  className='object-fit h-full w-full rounded-full '
+                />
+                </View>
                 <Text className='mx-1 my-2'>{item.username}</Text>
               </View>
               {/* Display a divider line */}
@@ -61,7 +67,7 @@ const Card: React.FC = () => {
             {/* Display product image */}
             <View className='px-2 h-56 rounded-2xl'>
               <Image
-                source={item.Images}
+                source={{ uri: item.Images }} // Assuming 'Images' is an array of image URLs
                 className='object-fit h-full w-full rounded-2xl'
               />
             </View>
