@@ -112,6 +112,23 @@ const Signup: React.FC = () => {
           <Text className="text-white">Sign Up</Text>
         </TouchableOpacity>
       </View>
+      <View>
+        <Text className="text-white">Signin with</Text>
+        <View className="flex flex-row mt-4 ">
+          <TouchableOpacity className=" w-8 h-8 mr-2 ">
+            <Image
+              source={require('../assets/sociallogo/new.png')}
+              className="object-contain w-full h-full"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity className=" w-8 h-8 ">
+            <Image
+              source={require('../assets/sociallogo/facebook.png')}
+              className="object-fit w-full h-full"
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };
