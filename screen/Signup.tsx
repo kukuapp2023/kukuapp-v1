@@ -67,12 +67,12 @@ const Signup: React.FC = () => {
     <View
       className="flex-1 items-center justify-center "
       style={{backgroundColor: '#1C2120'}}>
-        <View className='w-60 h-60'>
-          <Image
+      <View className="w-60 h-60">
+        <Image
           source={require('../assets/5.png')}
-          className='object-contain w-full h-full'
-          />
-        </View>
+          className="object-contain w-full h-full"
+        />
+      </View>
       <View>
         <Text className=" text-white text-2xl my-2 uppercase">Sign up</Text>
       </View>
@@ -111,6 +111,23 @@ const Signup: React.FC = () => {
           className="w-40 h-10 my-4 ml-20 bg-orange-400 rounded-2xl border-2 border-white items-center justify-center">
           <Text className="text-white">Sign Up</Text>
         </TouchableOpacity>
+      </View>
+      <View>
+        <Text className="text-white">Signin with</Text>
+        <View className="flex flex-row mt-4 ">
+          <TouchableOpacity className=" w-8 h-8 mr-2 ">
+            <Image
+              source={require('../assets/sociallogo/new.png')}
+              className="object-contain w-full h-full"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity className=" w-8 h-8 ">
+            <Image
+              source={require('../assets/sociallogo/facebook.png')}
+              className="object-fit w-full h-full"
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
