@@ -67,12 +67,12 @@ const Signup: React.FC = () => {
     <View
       className="flex-1 items-center justify-center "
       style={{backgroundColor: '#1C2120'}}>
-        <View className='w-60 h-60'>
-          <Image
+      <View className="w-60 h-60">
+        <Image
           source={require('../assets/5.png')}
-          className='object-contain w-full h-full'
-          />
-        </View>
+          className="object-contain w-full h-full"
+        />
+      </View>
       <View>
         <Text className=" text-white text-2xl my-2 uppercase">Sign up</Text>
       </View>

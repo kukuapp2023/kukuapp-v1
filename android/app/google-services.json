@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "371758909527",
+    "project_id": "kukuapp-a921c",
+    "storage_bucket": "kukuapp-a921c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371758909527:android:6f892ef6fb10e06a273b12",
+        "android_client_info": {
+          "package_name": "com.kukuapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371758909527-hg955q7nhefsdnheabonklq4dbgqvpal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeWIe-Ex6Q3_TA0M5oylibipOCz8eUaUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371758909527-hg955q7nhefsdnheabonklq4dbgqvpal.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
