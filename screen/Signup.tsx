@@ -5,6 +5,18 @@ import {RootStackParamList} from '../navigation/NavigationApp';
 import {Link, useNavigation} from '@react-navigation/native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
+
+GoogleSignin.configure({
+  webClientId:
+    "371758909527-hg955q7nhefsdnheabonklq4dbgqvpal.apps.googleusercontent.com",
+});
+
+
 
 type Sign = NativeStackScreenProps<RootStackParamList, 'Signup'>;
 const Signup: React.FC = () => {
@@ -17,6 +29,26 @@ const Signup: React.FC = () => {
   const [nameError, setNameError] = useState<string | null>(null);
   const [mobileError, setMobileError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
+
+
+  const signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      console.log(userInfo);
+    } catch (error: any) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (e.g. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
+  };
+
 
   // Function to validate the name field
   const validateName = () => {
@@ -115,7 +147,7 @@ const Signup: React.FC = () => {
       <View>
         <Text className="text-white">Signin with</Text>
         <View className="flex flex-row mt-4 ">
-          <TouchableOpacity className=" w-8 h-8 mr-2 ">
+          <TouchableOpacity onPress={signIn} className=" w-8 h-8 mr-2 ">
             <Image
               source={require('../assets/sociallogo/new.png')}
               className="object-contain w-full h-full"
