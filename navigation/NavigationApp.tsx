@@ -17,6 +17,7 @@ import Main from '../screen/Main';
 import Wallet from '../screen/Wallet';
 import AddProduct from '../components/AddProduct';
 import CartScreen from '../components/CartScreen';
+import ProfileComplete from '../screen/ProfileComplete';
 
 
   export type RootStackParamList = {
@@ -30,6 +31,7 @@ import CartScreen from '../components/CartScreen';
     Wallet:undefined;
     AddProduct:undefined
     CartScreen:undefined
+    ProfileComplete:undefined
     
   }
 
@@ -51,6 +53,7 @@ import CartScreen from '../components/CartScreen';
             <Stack.Screen name='Wallet' options={{headerShown:false}} component={Wallet}/>
             <Stack.Screen name='AddProduct' options={{headerShown:false}} component={AddProduct}/>
             <Stack.Screen name='CartScreen' options={{headerShown:false}} component={CartScreen}/>
+            <Stack.Screen name='ProfileComplete' options={{headerShown:false}} component={ProfileComplete}/>
             </Stack.Navigator>
       </NavigationContainer>
       </Provider>

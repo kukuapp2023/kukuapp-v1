@@ -43,34 +43,36 @@ const Login = () => {
     if (!mobileError && !passwordError) {
       // Implement your login logic here, e.g., API call for authentication
       console.log('Login successful');
-      navigation.navigate('Main');
+      navigation.navigate('ProfileComplete');
     }
   };
 
   return (
     <View className="flex-1" style={{backgroundColor: '#F5D20A'}}>
-      <View className=" h-1/2 bg-white rounded-b-[70]">
+      <View className=" h-2/5  bg-white rounded-b-[70px] ">
+      
         <Image
-        source={require("../assets/5.png")}
-        className="object-cover w-full h-full"
+        source={require("../assets/Logo.png")}
+        className="object-fit w-full h-full "
         />
+   
       </View>
       <View className="flex justify-center items-center ">
         <View className="my-4 text-center">
-          <Text className=" text-5xl  text-black ">Login</Text>
-          <Text>Sign in to continue</Text>
+          <Text className=" text-5xl font-extrabold  text-black ">Login</Text>
+          <Text className=' font-bold font-black'>Sign in to continue</Text>
         </View>
 
         <View>
           <View className='px-3'>
-          <Text className=" text-black uppercase px-4">username/phone number</Text>
+          <Text className=" text-black font-bold uppercase px-4">username/phone number</Text>
           <TextInput
             value={mobile}
             onChangeText={text => setMobile(text)}
             onBlur={validateMobile}
             className="my-1 mx-3 border-1 rounded-2xl bg-white"
           />
-          <Text className=" text-black px-4 uppercase">password</Text>
+          <Text className=" text-black font-bold px-4 uppercase">password</Text>
           <TextInput
             value={password}
             onChangeText={text => setPassword(text)}
@@ -85,14 +87,15 @@ const Login = () => {
             <Text className="text-white">Login</Text>
           </TouchableOpacity>
          </View>
-         
+
+          <View className='flex justify-center items-center'>
          <Link to="/ForgotPassword">
-          <Text className="text-center">Forgait Password</Text>
+          <Text className="text-center font-black font-extrabold">Forgait Password</Text>
          </Link>
-        
-          <Text className=" text-center">
+          <Text className=" font-bold text-center">
             <Link to="/Signup">Signup!</Link>
           </Text>
+          </View>
         </View>
       </View>
     </View>

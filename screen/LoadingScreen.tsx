@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 
 type LoadingScreen = NativeStackScreenProps<
   RootStackParamList,
@@ -38,6 +38,11 @@ const LoadingScreen = () => {
     <View
       className="flex-1 items-center justify-center"
       style={{backgroundColor: '#1C2120'}}>
+        <View className=' w-80 h-80'>
+          <Image
+            source={require('../assets/Logo.png')}
+            className='object-fit w-full h-full'/>
+        </View>
 
       <View style={styles.progressBarContainer}>
         <View
