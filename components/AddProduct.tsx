@@ -34,7 +34,7 @@ const AddProduct: React.FC = () => {
       <View className='shadow-xl bg-white  rounded-b-xl'>
         <View className='justify-between items-center'>
       <View><Text className='text-xl font-bold uppercase text-black pl-2'>Add Product</Text></View>
-      <View className=' w-16 h'>
+      <View className=' w-16 h-16'>
         <Image
         source={require("../assets/5.png")}
         className="object-cover w-full h-full"
