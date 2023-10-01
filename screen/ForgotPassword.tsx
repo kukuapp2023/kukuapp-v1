@@ -1,6 +1,6 @@
 import { View, Text, TextInput,TouchableOpacity } from 'react-native'
 import React from 'react'
-
+import Svg,{Image} from "react-native-svg"
 const ForgotPassword = () => {
   return (
     <View className='flex-1 justify-center' style={{backgroundColor:"#1C2120"}}>
@@ -24,6 +24,21 @@ const ForgotPassword = () => {
         className='w-28 h-9 bg-amber-300 rounded-3xl border-1 items-center justify-center'
         ><Text className=' uppercase'>Login</Text></TouchableOpacity>
       </View>
+
+      <View>
+        <Svg
+        width={100}
+        height={100}
+        viewBox="0 0 375 374"
+        >
+          <Image
+          height="100%"
+          width="100%"
+          href={require('../assets/vector.svg')}/>
+
+        </Svg>
+      </View>
+
     </View>
   )
 }

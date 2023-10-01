@@ -26,8 +26,13 @@ const HeaderApp = () => {
           '
           />
         </View>
-        <View className="m-2 h-10 w-10 bg-amber-500 border-white  rounded-full  ">
-      <TouchableOpacity onPress={handlAddcard}><Text className=' text-center mt-2'>Add</Text></TouchableOpacity>
+        <View className="m-2 h-10 w-10 border-white  rounded-full  ">
+      <TouchableOpacity onPress={handlAddcard}>
+        <Image
+        source={require('../assets/add-to-cart.png')}
+        className='object-cover h-full w-full rounded-full'
+        />
+      </TouchableOpacity>
         </View>
       </View>
     </View>
