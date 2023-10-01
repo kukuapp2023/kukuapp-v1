@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -133,13 +133,17 @@ const Signup: React.FC = () => {
     if (!nameError && !mobileError && !passwordError) {
       // All fields are filled and valid, proceed with signup logic here
       console.log('Signup successful');
-      navigation.navigate('OnboardingPage');
+      navigation.navigate('ProfileComplete');
     } else {
       // There are validation errors, do not navigate to the login page
       console.log('Signup failed. Please check the input fields.');
     }
   };
 
+useEffect(()=>{
+  handleSignup
+})
+  
   return (
     <View
       className="flex-1 items-center justify-center "
@@ -153,12 +157,12 @@ const Signup: React.FC = () => {
       
      <View className='mb-10'>
       <View>
-        <Text className=" text-white text-2xl text-center my-2 uppercase">Sign up</Text>
+        <Text className=" text-white text-5xl text-center my-2 uppercase">Sign up</Text>
       </View>
       <View>
         <TextInput
           style={{textAlign: 'center'}}
-          className="w-80 h-10  px-3 my-2  border-2 border-orange-400 rounded-2xl "
+          className="w-80 h-10  px-3 my-2 text-white  border-2 border-orange-400 rounded-2xl "
           placeholder="Your Name"
           value={name}
           onChangeText={text => setName(text)}
@@ -170,7 +174,7 @@ const Signup: React.FC = () => {
         ) : null}
         <TextInput
           style={{textAlign: 'center'}}
-          className="w-80 h-10 px-3 my-2  border-2  border-orange-400 rounded-2xl"
+          className="w-80 h-10 px-3 my-2  border-2 text-white  border-orange-400 rounded-2xl"
           placeholder="Your mobile number"
           keyboardType="phone-pad"
           value={mobile}
@@ -183,7 +187,7 @@ const Signup: React.FC = () => {
         ) : null}
         <TextInput
           style={{textAlign: 'center'}}
-          className="w-80 h-10  px-3 my-2 border-2  border-orange-400 rounded-2xl "
+          className="w-80 h-10  px-3 my-2 border-2 text-white  border-orange-400 rounded-2xl "
           placeholder="Enter your password"
           secureTextEntry
           placeholderTextColor={'#ffff'}
@@ -215,6 +219,7 @@ const Signup: React.FC = () => {
           </TouchableOpacity>
         </View>
       </View>
+
       </View>
     </View>
   );

@@ -14,7 +14,7 @@ const OnboardingPage = () => {
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const handleDone = ()=>{
-    navigation.navigate('Login');
+    navigation.navigate('Signup');
 }
 
 

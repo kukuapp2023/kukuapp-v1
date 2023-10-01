@@ -21,12 +21,12 @@ const LoadingScreen = () => {
     const timer = setInterval(() => {
       // Simulate loading progress
       setProgress(prevProgress => (prevProgress >= 1 ? 1 : prevProgress + 0.1));
-    }, 1000);
+    }, 500);
 
     // Navigate to signup screen when progress is complete (100%)
     if (progress >= 1) {
       clearInterval(timer);
-      navigation.navigate('Signup'); // Replace 'Signup' with your actual signup screen component name
+      navigation.navigate('OnboardingPage'); // Replace 'Signup' with your actual signup screen component name
     }
 
     return () => {
