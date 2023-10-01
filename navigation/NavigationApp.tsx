@@ -19,7 +19,7 @@ import AddProduct from '../components/AddProduct';
 import CartScreen from '../components/CartScreen';
 import ProfileComplete from '../screen/ProfileComplete';
 import YourOrder from '../screen/YourOrder';
-
+import SupportScreen from '../screen/SupportScreen';
 
   export type RootStackParamList = {
     LoadingScreen: undefined;
@@ -34,6 +34,7 @@ import YourOrder from '../screen/YourOrder';
     CartScreen:undefined
     ProfileComplete:undefined
     YourOrder:undefined
+    SupportScreen:undefined
     
   }
 
@@ -57,6 +58,7 @@ import YourOrder from '../screen/YourOrder';
             <Stack.Screen name='CartScreen' options={{headerShown:false}} component={CartScreen}/>
             <Stack.Screen name='ProfileComplete' options={{headerShown:false}} component={ProfileComplete}/>
             <Stack.Screen name='YourOrder' options={{headerShown:false}} component={YourOrder}/>
+            <Stack.Screen name='SupportScreen' options={{headerShown:false}} component={SupportScreen}/>
             </Stack.Navigator>
       </NavigationContainer>
       </Provider>
