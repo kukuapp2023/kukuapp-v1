@@ -8,6 +8,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  Switch
 } from 'react-native';
 import {RootStackParamList} from '../navigation/NavigationApp';
 import CustomDropdown from './CustomDropdown';
@@ -24,6 +25,12 @@ const AddProduct: React.FC = () => {
   const [price, setPrice] = useState('');
   const [size, setSize] = useState('');
   const [condition, setCondition] = useState('');
+
+  const [isSwitchOn, setIsSwitchOn] = useState<boolean>(false);
+
+  const toggleSwitch = () => {
+    setIsSwitchOn((previousState) => !previousState);
+  };
 
   const dropdownOptions = [
     {
@@ -76,7 +83,7 @@ const AddProduct: React.FC = () => {
           placeholderTextColor={'#F5D20A'}
         />
       </View>
-      <View className=' flex-row justify-between items-center mx-10 my-10'>
+      <View className=' flex-row justify-between items-center mx-10 my-10 z-50'>
       <View className=' w-40'>
         <CustomDropdown
           placeholder="Category"
@@ -91,7 +98,7 @@ const AddProduct: React.FC = () => {
           ]}
         />
       </View>
-      <View className=' w-40'>
+      <View className=' w-40 '>
         <CustomDropdown
           placeholder="Condition"
           onSelect={selectedOption => {
@@ -113,14 +120,21 @@ const AddProduct: React.FC = () => {
           placeholderTextColor={'#F5D20A'}
         />
       </View>
-      <View className=' my-10'>
+      <View className=' my-10 flex-row'>
         <Text className=' text-amber-400 font-bold text-center '>
           Is it Too much work for you . let Kuku team handle it 
         </Text>
+        <Switch
+        trackColor={{ false: '#767577', true: '#81b0ff' }}
+        thumbColor={isSwitchOn ? '#f4f3f4' : '#f4f3f4'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isSwitchOn}
+      />
       </View>
 
       <TouchableOpacity className=' ml-28 bg-white w-40 py-2 rounded-full'><Text className=' text-amber-400 text-xl font-extrabold text-center'>Go kuku</Text></TouchableOpacity>
-
+  
     </View>
   );
 };
