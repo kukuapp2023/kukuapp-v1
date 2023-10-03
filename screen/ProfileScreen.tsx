@@ -22,6 +22,10 @@ export default function ProfileScreen() {
       navigation.navigate('YourOrder');
     }
 
+    const handleSupport=()=>{
+      navigation.navigate('SupportScreen');
+    }
+
   return (
     <View className="flex-1" style={{backgroundColor: '#1C2120'}}>
       <View className=" bg-amber-300 p-5 rounded-t-3xl m-2 s">
@@ -71,7 +75,7 @@ export default function ProfileScreen() {
 
         {/* Contact Support */}
 
-        <TouchableOpacity className=' bg-amber-300 w-4/5 flex flex-row p-2 rounded-2xl mb-5'>
+        <TouchableOpacity onPress={handleSupport} className=' bg-amber-300 w-4/5 flex flex-row p-2 rounded-2xl mb-5'>
           <View className=" h-10 w-10">
             <Image
               source={require('../assets/profileicon/customer-service.png')}

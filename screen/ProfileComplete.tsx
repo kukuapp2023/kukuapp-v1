@@ -8,22 +8,27 @@ import {
   ScrollView,
 } from 'react-native';
 import React from 'react';
+import {useState} from 'react';
 
 import {RootStackParamList} from '../navigation/NavigationApp';
 import {Link, useNavigation} from '@react-navigation/native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
+
 type Sign = NativeStackScreenProps<RootStackParamList, 'ProfileComplete'>;
+
+
 
 const ProfileComplete = () => {
   const [selectRadio, setSelectRedio] = React.useState(1);
+  const [dob, setDob] = useState<Date | null>(null);
 
   const navigation =
   useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const handleNavigation = () => {
-    navigation.navigate('Main');
+    navigation.navigate('Login');
   }
 
 
@@ -36,7 +41,7 @@ const ProfileComplete = () => {
       <StatusBar backgroundColor="#1C2120" barStyle="dark-content" />
 
       <View className="flex items-center justify-center mt-9">
-        <Text className="text-white text-xl font-bold uppercase font-bold">
+        <Text className="text-white text-xl  uppercase font-bold">
           Complete Your Profile
         </Text>
 
@@ -149,6 +154,8 @@ const ProfileComplete = () => {
           </View>
         </View>
         <View className="w-72 h-[2px] bg-yellow-300"></View>
+
+        {/* date of birth */}
         <View className="mt-3">
           <TextInput
             className="border-b-2 border-amber-300 text-center text-lg font-semibold  uppercase text-white w-72 h-12 px-4"
@@ -156,7 +163,8 @@ const ProfileComplete = () => {
             placeholderTextColor={'#fff'}
           />
         </View>
-      
+
+        
       <View>
         <TextInput className='w-72 h-32 bg-amber-300 text-base font-bold text-center  rounded-3xl mt-5'
         placeholder='Flat / House No. / Floor / Building / Area / Sector / Locality Company'

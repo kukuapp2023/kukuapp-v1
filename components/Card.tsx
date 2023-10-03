@@ -75,17 +75,19 @@ const Card: React.FC = () => {
             <View className='px-2 my-1 flex justify-between flex-row'>
               <View className='flex flex-row'>
                 {/* Display heart and dollar icons */}
-                <View className=' w-5 h-5 m-3 flex'>
+                <View className=' w-5 h-5 m-3 flex-row'>
                   <Image
                     source={require('../assets/heart.png')}
                     className='object-fit h-full w-full'
                   />
+                  <Text>75</Text>
                 </View>
-                <View className=' w-5 h-5 m-3'>
+                <View className=' w-5 h-5 m-3 flex-row'>
                   <Image
                     source={require('../assets/dollar.png')}
                     className='object-fit h-full w-full'
                   />
+                  <Text className=' ml-1 text-sm'>{item.Price}</Text>
                 </View>
               </View>
               <View>
