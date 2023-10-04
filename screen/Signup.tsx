@@ -157,7 +157,7 @@ useEffect(()=>{
       
      <View className='mb-10'>
       <View>
-        <Text className=" text-white text-5xl text-center my-2 uppercase">Sign up</Text>
+        <Text className=" text-white text-4xl text-center my-2 uppercase">Sign up</Text>
       </View>
       <View>
         <TextInput

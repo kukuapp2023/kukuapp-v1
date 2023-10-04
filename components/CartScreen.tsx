@@ -34,35 +34,9 @@ const CartScreen: React.FC<CartScreenProps> = () => {
     navigation.navigate('Home');
   };
 
-  // Function to handle incrementing quantity
-  const handleIncrementQuantity = (listingName: string) => {
-    const itemToUpdate = cartItems.find(
-      item => item.ListingName === listingName,
-    );
-    if (itemToUpdate) {
-      dispatch(
-        updateQuantity({
-          ListingName: listingName,
-          newQuantity: itemToUpdate.Quantity + 1,
-        }),
-      );
-    }
-  };
-
-  // Function to handle decrementing quantity
-  const handleDecrementQuantity = (listingName: string) => {
-    const itemToUpdate = cartItems.find(
-      item => item.ListingName === listingName,
-    );
-    if (itemToUpdate && itemToUpdate.Quantity > 1) {
-      dispatch(
-        updateQuantity({
-          ListingName: listingName,
-          newQuantity: itemToUpdate.Quantity - 1,
-        }),
-      );
-    }
-  };
+  const handlePayNow = () => {
+    navigation.navigate('AccountPayments');
+  }
 
   // Render the component
   return (
@@ -110,7 +84,7 @@ const CartScreen: React.FC<CartScreenProps> = () => {
             <Text className=" text-lg font-extrabold ml-3">
               Total {totalAmount.toFixed(2)}
             </Text>
-            <TouchableOpacity className=" mr-4 bg-black rounded-3xl ">
+            <TouchableOpacity onPress={handlePayNow} className=" mr-4 bg-black rounded-3xl ">
               <Text className="text-white my-3 mx-10">Pay Now</Text>
             </TouchableOpacity>
           </View>
