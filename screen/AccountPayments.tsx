@@ -1,10 +1,11 @@
-import {View, Text, Image, TextInput, Touchable, Button} from 'react-native';
+import {View, Text, Image, TextInput, Touchable, Button,ScrollView} from 'react-native';
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {useState} from 'react';
 import DateModal from '../components/DateModal';
 import YearModal from '../components/YearModal';
 import {useNavigation} from '@react-navigation/native';
+
 
 const AccountPayments = () => {
   const [isDateModalVisible, setDateModalVisible] = useState(false);
@@ -56,6 +57,7 @@ const AccountPayments = () => {
     setCreatedCard(newCard);
     // You can now use the 'cardData' object as needed (e.g., send it to a server or store it in state).
     console.log('Card Data:', newCard);
+    navigation.navigate('OrderSuccessfullScreen')
   };
 
   const formatCardNumber = (input: string): string => {
@@ -76,6 +78,7 @@ const AccountPayments = () => {
   }
 
   return (
+    <ScrollView>
     <View className=" flex-1" style={{backgroundColor: '#1C2120'}}>
       <View className=" bg-amber-400 border-b-2 rounded-lg">
         <View className=" flex justify-center items-center flex-row mt-10 mb-5">
@@ -184,6 +187,7 @@ const AccountPayments = () => {
         </TouchableOpacity>
       </View>
     </View>
+    </ScrollView>
   );
 };
 

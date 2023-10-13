@@ -21,6 +21,7 @@ import ProfileComplete from '../screen/ProfileComplete';
 import YourOrder from '../screen/YourOrder';
 import SupportScreen from '../screen/SupportScreen';
 import AccountPayments from '../screen/AccountPayments';
+import OrderSuccessfullScreen from '../screen/OrderSuccessfullScreen';
 
   export type RootStackParamList = {
     LoadingScreen: undefined;
@@ -37,6 +38,7 @@ import AccountPayments from '../screen/AccountPayments';
     YourOrder:undefined
     SupportScreen:undefined
     AccountPayments:undefined
+    OrderSuccessfullScreen:undefined
     
   }
 
@@ -62,6 +64,7 @@ import AccountPayments from '../screen/AccountPayments';
             <Stack.Screen name='YourOrder' options={{headerShown:false}} component={YourOrder}/>
             <Stack.Screen name='SupportScreen' options={{headerShown:false}} component={SupportScreen}/>
             <Stack.Screen name='AccountPayments' options={{headerShown:false}} component={AccountPayments}/>
+            <Stack.Screen name='OrderSuccessfullScreen' options={{headerShown:false}} component={OrderSuccessfullScreen}/>
             </Stack.Navigator>
       </NavigationContainer>
       </Provider>

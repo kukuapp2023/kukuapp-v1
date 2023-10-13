@@ -8,6 +8,7 @@ import { Image, View } from 'react-native';
 import AuctionPage from '../screen/AuctionPage';
 import Messages from '../screen/Messages';
 
+
 // Define the type for the navigation parameters of the MainTabNavigator
 export type MainTabParamList = {
   Home: undefined;
