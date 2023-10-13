@@ -7,7 +7,6 @@ import Card from './components/Card'
 import OnboardingPage from './screen/OnboardingPage'
 const App = () => {
   return (
-   
 <NavigationApp/>
   )
 }

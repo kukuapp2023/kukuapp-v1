@@ -1,5 +1,6 @@
 // Import necessary modules and components
 import React from 'react';
+
 import {
   View,
   Text,
@@ -17,7 +18,7 @@ import {
 } from '../store/cartSlice';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigation/NavigationApp';
-import {useNavigation} from '@react-navigation/native';
+import {Link, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 // Define the type for the props
 type CartScreenProps = NativeStackScreenProps<RootStackParamList, 'CartScreen'>;
@@ -39,6 +40,8 @@ const CartScreen: React.FC<CartScreenProps> = () => {
   }
 
   // Render the component
+
+  console.log(cartItems.length);
   return (
     <View className="flex-1" style={{backgroundColor: '#1C2120'}}>
       {/* Render the list of cart items */}
@@ -67,8 +70,8 @@ const CartScreen: React.FC<CartScreenProps> = () => {
                   />
                 </View>
               </View>
-              <View className=" ml-8 mt-5">
-                <Text className=" text-xl  font-extrabold">
+              <View className=" ml-3 mt-5">
+                <Text className=" text-lg  font-extrabold">
                   {item.ListingName}
                 </Text>
                 <Text className=" text-xl font-extrabold">
@@ -91,7 +94,7 @@ const CartScreen: React.FC<CartScreenProps> = () => {
         </View>
       </View>
       {/* Display total amount */}
-    <View><Text  className=' text-slate-300 text-xl uppercase text-center font-medium'>continue shopping</Text></View>
+    <View className=' text-center justify-center items-center'><Link to="/Main"><Text  className=' text-slate-300 text-xl uppercase text-center font-medium'>continue shopping</Text></Link></View>
     </View>
   );
 };

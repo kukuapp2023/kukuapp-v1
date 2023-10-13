@@ -39,23 +39,7 @@ const MainTabNavigator = () => {
         }}
         component={Wallet}
       />
-      
-      {/* AuctionPage Tab */}
-      <Tab.Screen
-        name="AuctionPage"
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color }) => (
-            <View>
-              <Image
-                source={require('../assets/bottomIcon/bar-graph.png')}
-                className='object-cover w-full h-full'
-              />
-            </View>
-          ),
-        }}
-        component={AuctionPage}
-      />
+     
       
       {/* Home Tab */}
       <Tab.Screen
@@ -75,21 +59,7 @@ const MainTabNavigator = () => {
       />
       
       {/* Messages Tab */}
-      <Tab.Screen
-        name="Messages"
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color }) => (
-            <View>
-              <Image
-                source={require('../assets/bottomIcon/bell.png')}
-                className='object-cover w-full h-full'
-              />
-            </View>
-          ),
-        }}
-        component={Messages}
-      />
+     
       
       {/* Profile Tab */}
       <Tab.Screen

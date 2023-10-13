@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   Image,
   ToastAndroid,
+  KeyboardAvoidingView,
+  ScrollView,
 } from 'react-native';
 import {useState} from 'react';
 import {RootStackParamList} from '../navigation/NavigationApp';
@@ -14,6 +16,8 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoginManager, AccessToken} from 'react-native-fbsdk-next';
 import auth from '@react-native-firebase/auth';
+import * as Yup from 'yup';
+
 import {
   GoogleSignin,
   GoogleSigninButton,
@@ -92,36 +96,36 @@ const Signup: React.FC = () => {
     }
   };
 
-  // Function to validate the name field
-  const validateName = () => {
-    if (name == '') {
-      setNameError('Name is required');
-    } else {
-      setNameError(null);
-    }
-  };
+ // Function to validate the name field
+const validateName = () => {
+  if (!name.trim()) {
+    setNameError('Name is required');
+  } else {
+    setNameError(null);
+  }
+};
 
-  // Function to validate the mobile number field
-  const validateMobile = () => {
-    if (mobile == '') {
-      setMobileError('Mobile number is required');
-    } else if (!/^\d{10}$/i.test(mobile)) {
-      setMobileError('Invalid mobile number');
-    } else {
-      setMobileError(null);
-    }
-  };
+// Function to validate the mobile number field
+const validateMobile = () => {
+  if (!mobile.trim()) {
+    setMobileError('Mobile number is required');
+  } else if (!/^\d{10}$/.test(mobile)) {
+    setMobileError('Invalid mobile number');
+  } else {
+    setMobileError(null);
+  }
+};
 
-  // Function to validate the password field
-  const validatePassword = () => {
-    if (password == ' ') {
-      setPasswordError('Password is required');
-    } else if (password.length < 6) {
-      setPasswordError('Password must be at least 6 characters long');
-    } else {
-      setPasswordError(null);
-    }
-  };
+// Function to validate the password field
+const validatePassword = () => {
+  if (!password.trim()) {
+    setPasswordError('Password is required');
+  } else if (password.length < 6) {
+    setPasswordError('Password must be at least 6 characters long');
+  } else {
+    setPasswordError(null);
+  }
+};
 
   // Function to handle the signup button press
   const handleSignup = () => {
@@ -140,14 +144,11 @@ const Signup: React.FC = () => {
     }
   };
 
-useEffect(()=>{
-  handleSignup
-})
-  
+
   return (
+    <ScrollView className=' flex-1 '  style={{backgroundColor: '#1C2120'}}>
     <View
-      className="flex-1 items-center justify-center "
-      style={{backgroundColor: '#1C2120'}}>
+      className=" items-center justify-center ">
       <View className="w-80 h-80">
         <Image
           source={require('../assets/Logo.png')}
@@ -181,6 +182,7 @@ useEffect(()=>{
           onChangeText={text => setMobile(text)}
           onBlur={validateMobile}
           placeholderTextColor={'#ffff'}
+          
         />
         {mobileError ? (
           <Text style={{color: 'red', marginBottom: 10}}>{mobileError}</Text>
@@ -191,15 +193,23 @@ useEffect(()=>{
           placeholder="Enter your password"
           secureTextEntry
           placeholderTextColor={'#ffff'}
+          
         />
         {passwordError ? (
           <Text style={{color: 'red', marginBottom: 10}}>{passwordError}</Text>
         ) : null}
         <TouchableOpacity
-          onPress={handleSignup}
-          className="w-40 h-10 my-4 ml-20 bg-orange-400 rounded-2xl border-2 border-white items-center justify-center">
-          <Text className="text-white">Sign Up</Text>
-        </TouchableOpacity>
+  onPress={() => {
+    handleSignup();
+    // Only navigate if validation passes
+    if (!nameError && !mobileError && !passwordError) {
+      navigation.navigate('ProfileComplete');
+    }
+  }}
+  className="w-40 h-10 my-4 ml-20 bg-orange-400 rounded-2xl border-2 border-white items-center justify-center">
+  <Text className="text-white">Sign Up</Text>
+</TouchableOpacity>
+        
       </View>
 
       <View className=' flex justify-center items-center'>
@@ -219,9 +229,19 @@ useEffect(()=>{
           </TouchableOpacity>
         </View>
       </View>
-
+     <View className='mt-5'>
+        <Text className="text-white text-center">
+          Already have an account?
+          <Link to="/Login">
+            <Text className="text-white text-lg">Login</Text>
+          </Link>
+        </Text>
+     </View>
+   
+    
       </View>
     </View>
+    </ScrollView>
   );
 };
 
