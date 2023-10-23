@@ -8,6 +8,8 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/NavigationApp';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {selectCartItems} from '../store/cartSlice';
+import {useSelector} from 'react-redux';
 
 // Define the type for this specific screen navigation
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
@@ -33,6 +35,8 @@ const Home = () => {
     navigation.navigate('CartScreen');
   }
 
+  const cartItems = useSelector(selectCartItems);
+
   return (
     <View className='flex-1'>
       {/* Header */}
@@ -51,12 +55,14 @@ const Home = () => {
         </View>
         <View>
           {/* Cart Button */}
-          <TouchableOpacity onPress={handleCart}>
+          <TouchableOpacity className=' flex-row mr-2' onPress={handleCart}>
             <Image
               source={require('../assets/shopping-cart.png')}
-              className='object-fit h-7 w-7 m-2'
+              className='object-fit h-7 w-7 mt-3 '
             />
+              <Text className=' text-black text-lg  '>{cartItems.length}</Text>
           </TouchableOpacity>
+        
         </View>
       </View>
 

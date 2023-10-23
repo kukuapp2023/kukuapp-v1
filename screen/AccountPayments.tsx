@@ -73,13 +73,15 @@ const AccountPayments = () => {
     const formattedInput = formatCardNumber(text);
     setCardNumber(formattedInput);
   };
+
+
   const handleBack = () => {
     navigation.goBack();
   }
 
   return (
-    <ScrollView>
-    <View className=" flex-1" style={{backgroundColor: '#1C2120'}}>
+    <ScrollView className="flex-1" style={{backgroundColor: '#1C2120'}}>
+    <View className="flex-1" style={{backgroundColor: '#1C2120'}}>
       <View className=" bg-amber-400 border-b-2 rounded-lg">
         <View className=" flex justify-center items-center flex-row mt-10 mb-5">
           <Image

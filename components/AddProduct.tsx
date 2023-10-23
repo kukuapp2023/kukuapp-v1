@@ -1,5 +1,6 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React, {useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {
   View,
   Text,
@@ -21,10 +22,14 @@ interface Product {
 }
 type AddProduct = NativeStackScreenProps<RootStackParamList, 'AddProduct'>;
 const AddProduct: React.FC = () => {
+
+  const Navigation = useNavigation()
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [size, setSize] = useState('');
   const [condition, setCondition] = useState('');
+  const [categoryOpen, setCategoryOpen] = useState<boolean>(false);
+  const [conditionOpen, setConditionOpen] = useState<boolean>(false);
 
   const [isSwitchOn, setIsSwitchOn] = useState<boolean>(false);
 
@@ -32,6 +37,9 @@ const AddProduct: React.FC = () => {
     setIsSwitchOn((previousState) => !previousState);
   };
 
+ const handleNavigation = () => {
+    Navigation.navigate('ThanksScreen');
+ }
   const dropdownOptions = [
     {
       label: 'New',
@@ -84,35 +92,43 @@ const AddProduct: React.FC = () => {
         />
       </View>
       <View className=' flex-row justify-between items-center mx-10 my-10 z-50'>
-      <View className=' w-40'>
-        <CustomDropdown
-          placeholder="Category"
-          onSelect={selectedOption => {
-            console.log(`Selected option: ${selectedOption}`);
-            // Handle the selected option as needed
-          }}
-          options={[
-            {category: 'Option 1'},
-            {category: 'Option 2'},
-            {category: 'Option 3'},
-          ]}
-        />
-      </View>
-      <View className=' w-40 '>
-        <CustomDropdown
-          placeholder="Condition"
-          onSelect={selectedOption => {
-            console.log(`Selected option: ${selectedOption}`);
-            // Handle the selected option as needed
-          }}
-          options={[
-            {category: 'Option 1'},
-            {category: 'Option 2'},
-            {category: 'Option 3'},
-          ]}
-        />
-      </View>
-      </View>
+  <View className=' w-40'>
+    <CustomDropdown
+      placeholder="Category"
+      onSelect={selectedOption => {
+        console.log(`Selected option: ${selectedOption}`);
+        // Handle the selected option as needed
+      }}
+      options={[
+        { category: 'Option 1' },
+        { category: 'Option 2' },
+        { category: 'Option 3' },
+      ]}
+      isOpen={categoryOpen} // Pass the open state for the "Category" dropdown
+      onToggle={setCategoryOpen} // Pass the callback to handle open state for "Category"
+    />
+  </View>
+  <View className=' w-40 '>
+    <CustomDropdown
+      placeholder="Condition"
+      onSelect={selectedOption => {
+        console.log(`Selected option: ${selectedOption}`);
+        // Handle the selected option as needed
+      }}
+      options={[
+        { category: 'Option 1' },
+        { category: 'Option 2' },
+        { category: 'Option 3' },
+      ]}
+      isOpen={conditionOpen} // Pass the open state for the "Condition" dropdown
+      onToggle={setConditionOpen} // Pass the callback to handle open state for "Condition"
+    />
+  </View>
+</View>
+
+
+
+
       <View className='mt-10'>
         <TextInput
           className="  border-gray-300 border-b-2 text-center mx-10 text-lg font-semibold "
@@ -133,7 +149,7 @@ const AddProduct: React.FC = () => {
       />
       </View>
 
-      <TouchableOpacity className=' ml-28 bg-white w-40 py-2 rounded-full'><Text className=' text-amber-400 text-xl font-extrabold text-center'>Go kuku</Text></TouchableOpacity>
+      <TouchableOpacity onPress={handleNavigation} className=' ml-28 bg-white w-40 py-2 rounded-full'><Text className=' text-amber-400 text-xl font-extrabold text-center'>Go kuku</Text></TouchableOpacity>
   
     </View>
   );

@@ -9,15 +9,18 @@ interface CustomDropdownProps {
   options: Option[];
   placeholder: string;
   onSelect: (selectedOption: Option) => void;
+  isOpen: boolean; // New prop to control the open state
+  onToggle: (isOpen: boolean) => void; // Callback to handle toggling open state
 }
 
 const CustomDropdown: React.FC<CustomDropdownProps> = ({
   options,
   placeholder,
   onSelect,
+  isOpen, // Use the isOpen prop to determine the initial open state
+  onToggle, // Callback to handle toggling open state
 }) => {
   const [search, setSearch] = useState<string>('');
-  const [clicked, setClicked] = useState<boolean>(false);
   const [data, setData] = useState<Option[]>(options);
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
   const searchRef = useRef<TextInput | null>(null);
@@ -49,19 +52,19 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
           backgroundColor: '#F5D20A',
         }}
         onPress={() => {
-          setClicked(!clicked);
+          onToggle(!isOpen); // Toggle the open state via the onToggle callback
         }}
       >
-        <Text className=' text-xl font-bold' >
+        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
           {selectedOption ? selectedOption.category : placeholder}
         </Text>
-        {clicked ? (
+        {isOpen ? ( // Use the isOpen prop to determine the dropdown's state
           <Image source={require("../assets/upload.png")} style={{ width: 20, height: 20 }} />
         ) : (
           <Image source={require('../assets/dropdown.png')} style={{ width: 20, height: 20 }} />
         )}
       </TouchableOpacity>
-      {clicked ? (
+      {isOpen ? ( // Use the isOpen prop to conditionally render the dropdown
         <View
           style={{
             elevation: 5,
@@ -108,7 +111,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
                   }}
                   onPress={() => {
                     setSelectedOption(item);
-                    setClicked(false);
+                    onToggle(false); // Close the dropdown via the onToggle callback
                     onSearch('');
                     setSearch('');
                     onSelect(item);

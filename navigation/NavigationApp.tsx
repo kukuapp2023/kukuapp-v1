@@ -22,6 +22,9 @@ import YourOrder from '../screen/YourOrder';
 import SupportScreen from '../screen/SupportScreen';
 import AccountPayments from '../screen/AccountPayments';
 import OrderSuccessfullScreen from '../screen/OrderSuccessfullScreen';
+import Card from '../components/Card';
+import ThanksScreen from '../components/ThanksScreen';
+import UserScreen from '../components/UserScreen';
 
   export type RootStackParamList = {
     LoadingScreen: undefined;
@@ -39,6 +42,11 @@ import OrderSuccessfullScreen from '../screen/OrderSuccessfullScreen';
     SupportScreen:undefined
     AccountPayments:undefined
     OrderSuccessfullScreen:undefined
+    Card:undefined
+    ThanksScreen:undefined
+    UserScreen:undefined
+
+    
     
   }
 
@@ -65,6 +73,10 @@ import OrderSuccessfullScreen from '../screen/OrderSuccessfullScreen';
             <Stack.Screen name='SupportScreen' options={{headerShown:false}} component={SupportScreen}/>
             <Stack.Screen name='AccountPayments' options={{headerShown:false}} component={AccountPayments}/>
             <Stack.Screen name='OrderSuccessfullScreen' options={{headerShown:false}} component={OrderSuccessfullScreen}/>
+            <Stack.Screen name='Card' options={{headerShown:false}} component={Card}/>
+            <Stack.Screen name='ThanksScreen' options={{headerShown:false}}  component={ThanksScreen}/>
+            <Stack.Screen name='UserScreen' options={{headerShown:false}}  component={UserScreen}/>
+
             </Stack.Navigator>
       </NavigationContainer>
       </Provider>
